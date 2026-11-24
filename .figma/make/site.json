@@ -1,0 +1,10 @@
+{
+  "description": "A simple ebook store for browsing books, managing a session-based shopping cart, and securely signing in and out, with remembered usernames for returning shoppers.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

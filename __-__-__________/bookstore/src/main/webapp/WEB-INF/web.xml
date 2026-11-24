@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    简易电子书店 web.xml（Servlet 3.1，兼容 Tomcat 8.5 / 9.0）
+    各 Servlet 使用 @WebServlet 注解映射：
+      /login     LoginServlet     登录（GET 显示登录页并回显 Cookie 用户名，POST 处理登录）
+      /bookList  BookListServlet  书籍列表
+      /addCart   AddCartServlet   加入购物车
+      /showCart  ShowCartServlet  展示购物车
+      /logout    LogoutServlet    安全退出
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>bookstore</display-name>
+
+    <!-- 首页：登录页面 -->
+    <welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- ===== Session 会话配置 ===== -->
+    <session-config>
+        <!-- 会话超时时间：30 分钟内无任何请求，服务器自动销毁该 Session -->
+        <session-timeout>30</session-timeout>
+        <!-- 会话跟踪方式：优先 Cookie（JSESSIONID），浏览器禁用 Cookie 时使用 URL 重写（;jsessionid=） -->
+        <tracking-mode>COOKIE</tracking-mode>
+        <tracking-mode>URL</tracking-mode>
+    </session-config>
+
+    <!--
+        覆盖 Tomcat 默认 Servlet（负责输出 login.html、css 等静态资源）的文件编码为 UTF-8。
+        原因：LoginServlet 登录失败时先设置了响应编码 UTF-8，再请求转发到 login.html；
+        中文 Windows 下 Tomcat 默认按 GBK 读取静态文件并转码，会导致转发后的页面中文乱码。
+    -->
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>fileEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>

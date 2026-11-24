@@ -1,0 +1,96 @@
+/* Bookstore session-tracking demo - shared stylesheet (ASCII only) */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: #f3f5f8;
+    font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+}
+.container { width: 960px; max-width: 96%; margin: 24px auto; }
+h2 { color: #1f4e79; border-left: 4px solid #2e75b6; padding-left: 10px; }
+
+/* navigation bar */
+.nav {
+    background: #1f4e79;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+.nav .brand { font-size: 18px; font-weight: bold; margin-right: auto; }
+.nav a { color: #fff; text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+.nav .logout { background: #c0392b; padding: 4px 12px; border-radius: 4px; }
+
+/* session info box */
+.session-info {
+    background: #fffbe6;
+    border: 1px solid #f0d58c;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    line-height: 1.9;
+}
+.session-info code { color: #c0392b; font-size: 13px; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid #dde3ea; padding: 9px 10px; text-align: center; }
+th { background: #2e75b6; color: #fff; }
+tr:nth-child(even) td { background: #f7f9fc; }
+tr.total td { font-weight: bold; background: #eaf1fb; }
+.price { color: #c0392b; font-weight: bold; }
+
+/* buttons */
+.btn {
+    display: inline-block;
+    background: #2e75b6;
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.btn:hover { background: #1f4e79; }
+.btn.gray { background: #7f8c8d; }
+.btn.red { background: #c0392b; }
+.actions { margin-top: 16px; }
+
+/* messages */
+.msg { padding: 10px 14px; border-radius: 5px; margin: 12px 0; }
+.msg.error { background: #fdecea; color: #b03a2e; border: 1px solid #f5b7b1; }
+.msg.success { background: #e9f7ef; color: #1e8449; border: 1px solid #a9dfbf; }
+.msg.info { background: #eaf2fb; color: #1f4e79; border: 1px solid #aed6f1; }
+
+/* login box */
+.login-box {
+    width: 380px;
+    margin: 60px auto 20px;
+    background: #fff;
+    padding: 26px 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+.login-box label { display: block; margin: 14px 0; }
+.login-box input[type=text], .login-box input[type=password] {
+    width: 230px;
+    padding: 7px 9px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+.login-box .remember { color: #555; }
+.login-box button {
+    width: 100%;
+    padding: 9px;
+    background: #2e75b6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.login-box button:hover { background: #1f4e79; }
+.hint { color: #888; font-size: 12px; text-align: center; }
+.footer { text-align: center; color: #999; font-size: 12px; margin: 30px 0 10px; }

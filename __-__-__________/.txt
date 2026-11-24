@@ -1,0 +1,7 @@
+本文件夹已包含 Tomcat 9.0 真实运行截图（并已同步嵌入《电子书店会话跟踪实验报告.docx》对应位置）：
+图1 登录页面.png
+图2 记住用户名回显效果.png            （勾选记住我登录 -> 关闭浏览器 -> 重新打开登录页）
+图3 购物车页面.png                    （加入多本图书后）
+图4 控制台打印sessionId.png           （IDEA 控制台 [AddCartServlet] sessionId=... 多次相同）
+图5 禁用Cookie后URL携带jsessionid.png （地址栏可见 ;jsessionid=...）
+图6 退出登录效果.png                  （提示已安全退出，用户名输入框为空）
